@@ -23,13 +23,11 @@ app.get('/api/retrieveSlots', function(req, res) {
 
 app.post('/api/appointmentCreate', function(req, res) {
   console.log("Called appointmentCreate");
-  console.log(req);
 
   var req_body = req.body;
-  console.log(req_body);
 
   var customer = {};
-  customer.id = makeid();
+  customer.id = makeid(50);
   customer.first_name = req_body.first_name;
   customer.last_name = req_body.last_name;
   customer.email = req_body.email;
@@ -44,14 +42,11 @@ app.post('/api/appointmentCreate', function(req, res) {
   slot.slot_time = req_body.slot_time;
 
   slots.push(slot);
-
-  console.log(customer);
-  console.log(slot);
 });
 
 var port = process.env.PORT || 3010;
 app.listen(port, function() {
-  console.log('Example app listening on port 3010');
+  console.log('Appointment server listening on port ' + port);
 })
 
 function makeid(length) {
