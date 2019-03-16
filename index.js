@@ -49,7 +49,8 @@ app.post('/api/appointmentCreate', function(req, res) {
   console.log(slot);
 });
 
-app.listen(3010, function() {
+var port = process.env.PORT || 3010;
+app.listen(port, function() {
   console.log('Example app listening on port 3010');
 })
 
